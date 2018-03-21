@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 class Mage extends Character{
-	
+	protected String metier = "Mage";	
 	protected Spell monSort = new Spell();
 	protected int damages = strength + monSort.getSpellAttackLevel();
 	protected boolean shieldPotion = false;
@@ -52,6 +52,8 @@ class Mage extends Character{
 			setShieldPotion(false);
 		}
 		System.out.println("Votre potion de défence est : " + shieldPotion);
+		mettreAJour();
+		
 	}
 	
 	public void attaquer() {
@@ -60,15 +62,14 @@ class Mage extends Character{
 	}
 	public void afficher() {
 		System.out.println("_________________________________________");
-		System.out.println("");
 		System.out.println("Your Name : " + name);
+		System.out.println("Your Profession : " + metier);
 		System.out.println("Your Image : " + image);
 		System.out.println("Your Life : " + life);
 		System.out.println("Your strength : " + strength);
 		System.out.println("---");
 		System.out.println("Your spell : " + monSort.getNameSpell() + " who deliver " + monSort.getSpellAttackLevel() + " damages");
 		System.out.println("Your shieldPotion : " + shieldPotion);
-		System.out.println("");
 		System.out.println("_________________________________________");
 
 	}
@@ -83,7 +84,7 @@ class Mage extends Character{
 		System.out.println("Son niveau de puissance : ");
 		int str2 = sc.nextInt();
 		monSort.setSpellAttackLevel(str2);
-
+		mettreAJour();
 	}
 
 	public static void main(String[] args) {

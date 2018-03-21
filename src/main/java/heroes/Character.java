@@ -2,7 +2,7 @@ package main.java.heroes;
 
 import java.util.Scanner;
 
-class Character {
+abstract class Character {
 	protected String name = "Peasant";
 	protected String image  = "X";
 	protected int life = 1 + (int)(Math.random() * ((100 - 1) + 1));;

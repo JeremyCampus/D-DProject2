@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 class Guerrier extends Character{
-	
+	protected String metier = "Guerrier";
 	protected Arme monArme = new Arme();
 	protected int damages =  strength + monArme.getWeaponAttackLevel();
 	protected boolean shield = false;
@@ -53,6 +53,7 @@ class Guerrier extends Character{
 			setShield(false);
 		}
 		System.out.println("Votre bouclier est : " + shield);
+		mettreAJour();
 	}
 
 	public void attaquer() {
@@ -61,15 +62,14 @@ class Guerrier extends Character{
 	}
 	public void afficher() {
 		System.out.println("_________________________________________");
-		System.out.println("");
 		System.out.println("Your Name : " + name);
+		System.out.println("Your Profession : " + metier);
 		System.out.println("Your Image : " + image);
 		System.out.println("Your Life : " + life);
 		System.out.println("Your strength : " + strength);
 		System.out.println("---");
 		System.out.println("Your weapon is " + monArme.getNameWeapon() + " who deliver " + monArme.getWeaponAttackLevel() + " damages.");
 		System.out.println("Your shield : " + shield);
-		System.out.println("");
 		System.out.println("_________________________________________");
 
 	}
@@ -85,7 +85,7 @@ class Guerrier extends Character{
 		System.out.println("Son niveau de puissance : ");
 		int str2 = sc.nextInt();
 		monArme.setWeaponAttackLevel(str2);
-
+		mettreAJour();		
 	}
 
 	public static void main(String[] args) {

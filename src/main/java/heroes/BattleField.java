@@ -43,8 +43,8 @@ class BattleField {
 				System.out.println("Afficher la liste des personnages ? = 2");
 				System.out.println("Menu de gestion des personnages ? = 3");
 				System.out.println("Afficher un tableau de 5 objet ? = 4");
-				System.out.println("Quitter = 5");
-				System.out.println("Une division par 0 ? = 6");
+				System.out.println("Une division par 0 ? = 5");
+				System.out.println("Quitter = 6");
 				System.out.println("---");
 				System.out.println("");
 				System.out.println("");
@@ -87,20 +87,19 @@ class BattleField {
 						break;  
 						
 					case "4":
-					creationALaChaine();
-						;
+						creationALaChaine();
 						break;       
 					case "5":
-						quitter = true;
-						break;   
-					case "6":
 						try {
 							System.out.println(1/0);
 						  } catch (ArithmeticException e) {
 							System.out.println("Division par zéro !");
 						  }
 					  break; 						  
-					default:
+					case "6":
+					  quitter = true;
+					  break;   
+				  default:
 						System.out.println("");
 						break;        
 				}
@@ -158,9 +157,9 @@ public static void gestionDuHero(int numHero){
 				break;        
 			case "5":
 			System.out.println("Etes vous sur ?");
-			System.out.println("y(Yes), n(No)");
-			String validSuppr = sc.nextLine();
-			if(validSuppr == "y" || validSuppr == "Y")
+			System.out.println("y(42)");
+			int validSuppr = sc.nextInt();
+			if(validSuppr == 42)
 			{
 				listeHeroes.remove(numHero);
 				exit = true;
@@ -177,36 +176,38 @@ public static void gestionDuHero(int numHero){
 }
 
 //-------------------------AFFICHER TEMPORAIRE
-		public static void creationALaChaine(){
-			Guerrier[] tableauGuerrier = new Guerrier[6];
+	public static void creationALaChaine(){
+		Guerrier[] tableauGuerrier = new Guerrier[6];
 
-			Guerrier myHero = new Guerrier("Guerrier n1 pour la competence");
-			Guerrier myHero2 = new Guerrier("Guerrier n2 pour la competence");
-			Guerrier myHero3 = new Guerrier("Guerrier n3 pour la competence");
-			Guerrier myHero4 = new Guerrier("Guerrier n4 pour la competence");
-			Guerrier myHero5 = new Guerrier("Guerrier n5 pour la competence");
-			tableauGuerrier[0]=myHero;
-			tableauGuerrier[1]=myHero2;
-			tableauGuerrier[2]=myHero3;
-			tableauGuerrier[3]=myHero4;
-			tableauGuerrier[4]=myHero4;
-			for(int i = 0; i < 5; i++){
-			System.out.println("Voici le hero : " + tableauGuerrier[i].getName());
-			}
+		Guerrier myHero = new Guerrier("Guerrier n1 pour la competence");
+		Guerrier myHero2 = new Guerrier("Guerrier n2 pour la competence");
+		Guerrier myHero3 = new Guerrier("Guerrier n3 pour la competence");
+		Guerrier myHero4 = new Guerrier("Guerrier n4 pour la competence");
+		Guerrier myHero5 = new Guerrier("Guerrier n5 pour la competence");
+		tableauGuerrier[0]=myHero;
+		tableauGuerrier[1]=myHero2;
+		tableauGuerrier[2]=myHero3;
+		tableauGuerrier[3]=myHero4;
+		tableauGuerrier[4]=myHero4;
+		for(int i = 0; i < 5; i++){
+		System.out.println("Voici le hero : " + tableauGuerrier[i].getName());
 		}
+	}
 
 
 //-------------------------CREATION PERSONNAGE OLD
 	public static void createCharacter()
 	{
 		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
 		Character myHero = null;
 
-		String vocation = "";
+		int vocation = 0;
 		System.out.println("Guerrier(1) ou Mage(2) ?");
-		vocation = sc.nextLine();
+		vocation = sc2.nextInt();
+		
 
-		String myName ="";
+		String myName = "";
 		System.out.println("Quel est son nom ?");
 		myName = sc.nextLine();
 
@@ -220,7 +221,7 @@ public static void gestionDuHero(int numHero){
 		System.out.println("Quel est votre Strenght ?");
 		newStrenght = sc.nextInt();	
 
-		if(vocation == "1"){
+		if(vocation == 1){
 			myHero = new Guerrier(myName, newImage, newLife, newStrenght);
 		}else{
 			myHero = new Mage(myName, newImage, newLife, newStrenght);
